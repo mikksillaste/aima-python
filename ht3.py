@@ -10,7 +10,6 @@ class MiniSudoku(search.Problem):
         actions = []
         for i in space:
             if i == 0:
-                
 
         return actions
 
