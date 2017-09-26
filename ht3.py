@@ -6,7 +6,7 @@ class MiniSudoku(search.Problem):
         space = state.index(0)
         row = space // 4
         col = space % 4
-        
+
         actions = []
 
         return actions
