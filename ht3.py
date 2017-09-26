@@ -3,11 +3,13 @@ import search
 
 class MiniSudoku(search.Problem):
     def actions(self, state):
+        n = -1
+
         actions = []
         for i in state:
-            space = state.index(0)
-            y = space // 4
-            x = space % 4
+            n += 1
+            y = n // 4
+            x = n % 4
 
             if i == 0:
                 if y == 0:
