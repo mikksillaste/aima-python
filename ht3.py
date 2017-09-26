@@ -22,10 +22,10 @@ class MiniSudoku(search.Problem):
 
     def goal_test(self, state):
         # blah asemel on lõppseisu tingimus
-        if blah:
+        if len(state[0:4]) == len(set(state[0:4])) and sum(state[4:8]) == len(set(state[4:8]))  and sum(state[8:12]) == len(set(state[8:12])) and sum(state[12:16]) == len(set(state[12:16])):
             return True
-
-        return False
+        else:
+            return False
 
 inistate = (2, 1, 0, 0,
             0, 3, 2, 0,
