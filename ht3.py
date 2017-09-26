@@ -8,6 +8,9 @@ class MiniSudoku(search.Problem):
         col = space % 4
 
         actions = []
+        for i in space:
+            if i == 0:
+                
 
         return actions
 
