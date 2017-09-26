@@ -12,8 +12,6 @@ class MiniSudoku(search.Problem):
             x = n % 4
 
             if i == 0:
-                if y == 0:
-
 
         return actions
 
