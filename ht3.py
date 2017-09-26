@@ -4,6 +4,8 @@ import search
 class MiniSudoku(search.Problem):
     def actions(self, state):
         space = state.index(0)
+        row = space // 4
+        col = space % 4
 
         actions = []
 
