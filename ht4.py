@@ -42,6 +42,30 @@ class VacWorld(search.Problem):
     def result(self, state, action):
         newstate = state.copy()
         # action on yks nendest: "Left", "Right", "Suck", "NoOp"
+        if state["loc"] == "A":
+            if action == "Suck":
+                newstate["A"] == "Clean"
+            elif action == "Right":
+                newstate["loc"] == "B"
+        elif state["loc"] == "B":
+            if action == "Suck":
+                newstate["B"] == "Clean"
+            elif action == "Right":
+                newstate["loc"] == "C"
+            elif action == "Left":
+                newstate["loc"] == "A"
+        elif state["loc"] == "C":
+            if action == "Suck":
+                newstate["C"] == "Clean"
+            elif action == "Right":
+                newstate["loc"] == "D"
+            elif action == "Left":
+                newstate["loc"] == "B"
+        elif state["loc"] == "D":
+            if action == "Suck":
+                newstate["D"] == "Clean"
+            elif action == "Left":
+                newstate["loc"] == "C"
 
         return newstate
 
@@ -65,7 +89,7 @@ algolek = {
 #algolek = (1,0,0,1,2)
 
 p=VacWorld(algolek)
-print(p.actions(olek))
+#print(p.actions(olek))
 asi = search.breadth_first_tree_search(p)
 #asi = search.iterative_deepening_search(p)
 print(asi.solution())
