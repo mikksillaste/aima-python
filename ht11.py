@@ -19,7 +19,7 @@ def load_mnist_images(fn):
 def load_mnist_labels(fn):
     label_list = []
     with open(fn, "rb") as f:
-        f.read(8)
+        f.read(10)
         chunk_size = 28 * 28
         chunk = f.read(chunk_size)
         while chunk:
@@ -36,7 +36,7 @@ print(len(imgs))
 
 train_data = []
 for i in range(len(imgs)):
-    train_data.append(imgs[i] + [labels[i]])
+        train_data.append(imgs[i] + [labels[i]])
 train_ds = learning.DataSet(random.sample(train_data, 100))
 
 print("trainging...")
