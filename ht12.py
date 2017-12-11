@@ -34,4 +34,3 @@ print_table(env.to_arrows(policy(ap)))
 
 class SARSAAgent(rl.QLearningAgent):
     def __call__(self, percept):
-        
