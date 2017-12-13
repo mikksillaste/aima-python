@@ -1,4 +1,4 @@
 number = int(input("Sisesta number: "))
 
-numberRange = range(number, number+1)
+numberRange = range(1, number+1)
 
