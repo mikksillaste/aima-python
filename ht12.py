@@ -32,5 +32,5 @@ print_table(env.to_grid(heatmap(ap)))
 print_table(env.to_arrows(policy(ap)))
 
 
-class SARSAAgent(rl.QLearningAgent):
-    def __call__(self, percept):
+# class SARSAAgent(rl.QLearningAgent):
+#    def __call__(self, percept):
