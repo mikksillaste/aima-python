@@ -15,8 +15,8 @@ def MyVacuumAgent():
             print('Suck')
             clean_room_seen = True
             return 'Suck'
-        elif clean_room_seen:
-            return "NoOp"
+       # elif clean_room_seen:
+       #     return "NoOp"
         elif location == agents.loc_A:
             print('Right')
             clean_room_seen = True
@@ -28,14 +28,15 @@ def MyVacuumAgent():
 
     return agents.Agent(program)
 
+
 e = agents.TrivialVacuumEnvironment()
+e.status = {agents.loc_A: "Dirty", agents.loc_B: "Dirty"}
 # e.add_thing(agents.ModelBasedVacuumAgent())
 agent1 = MyVacuumAgent()
-agent1 = agents.ModelBasedVacuumAgent()
+agent2 = agents.ModelBasedVacuumAgent()
 e.add_thing(agent1)
 
-e.status = {agents.loc_A: "Dirty", agents.loc_B: "Dirty"}
-print(e.status)
+#print(e.status)
 e.run(10)
-print(e.status)
+# print(e.status)
 print(agent1.performance)
