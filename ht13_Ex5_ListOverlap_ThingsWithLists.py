@@ -18,4 +18,4 @@ print("Minu: " + str(commonElements))
 # sama asi yhe reaga
 c = [x for x in set(a) if x in set(b)]
 
-print("Ühe reaga: " + str(c))    
+print("Ühe reaga: " + str(c))
