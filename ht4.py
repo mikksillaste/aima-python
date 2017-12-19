@@ -1,5 +1,6 @@
 import search
 
+
 class VacWorld(search.Problem):
     def actions(self, state):
         actions = []
@@ -71,26 +72,27 @@ class VacWorld(search.Problem):
         return newstate
 
     def goal_test(self, state):
-    # kui on kõik puhas siis return true
+        # kui on kõik puhas siis return true
         if state["A"] == "Clean" and state["B"] == "Clean" and state["C"] == "Clean" and state["D"] == "Clean":
             return True
-    # muidu false
+            # muidu false
         return False
 
-#algoleku kirjeldus 1
+
+# algoleku kirjeldus 1
 algolek = {
-    "A" : "Dirty",
-    "B" : "Clean",
-    "C" : "Clean",
-    "D" : "Dirty",
-    "loc" : "C"
+    "A": "Dirty",
+    "B": "Clean",
+    "C": "Clean",
+    "D": "Dirty",
+    "loc": "C"
 }
 
-#algoleku kirjeldus 2
-#algolek = (1,0,0,1,2)
+# algoleku kirjeldus 2
+# algolek = (1,0,0,1,2)
 
-p=VacWorld(algolek)
-#print(p.actions(olek))
+p = VacWorld(algolek)
+# print(p.actions(olek))
 asi = search.breadth_first_tree_search(p)
-#asi = search.iterative_deepening_search(p)
+# asi = search.iterative_deepening_search(p)
 print(asi.solution())
