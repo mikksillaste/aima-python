@@ -3,14 +3,15 @@ import search
 
 class MiniSudoku(search.Problem):
     def actions(self, state):
+        space = state.index(0)
+
         act = []
 
         for x in range(4):
             for y in range(4):
                 koht = 4 * y + x
-                # for i in range(1, 15):
-                #    if koht == 0:
-                print(koht)
+      #          if koht == 0:
+
 
         return act
 
