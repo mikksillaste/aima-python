@@ -5,12 +5,13 @@ class MiniSudoku(search.Problem):
     def actions(self, state):
         space = state.index(0)
 
+
         act = []
 
         for x in range(4):
             for y in range(4):
                 koht = 4 * y + x
-      #          if koht == 0:
+                print(x, y, koht)
 
 
         return act
