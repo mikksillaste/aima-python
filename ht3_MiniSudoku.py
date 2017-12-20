@@ -5,15 +5,13 @@ class MiniSudoku(search.Problem):
     def actions(self, state):
         space = state.index(0)
 
-
         act = []
 
         for x in range(4):
             for y in range(4):
                 koht = 4 * y + x
-                print(x, y, koht)
-
-
+                if x == 0 and y == 0:
+                    act.append(state([space + koht]))
         return act
 
     def result(self, state, action):
@@ -36,6 +34,6 @@ inistate = (2, 1, 0, 0,
             1, 0, 0, 0)
 
 p = MiniSudoku(inistate)
-# asi = search.breadth_first_search(p)
-print(p.actions(inistate))
-# print(asi.solution())
+asi = search.breadth_first_tree_search(p)
+print(asi.solution())
+

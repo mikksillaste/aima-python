@@ -6,6 +6,7 @@ class EightPuzzle(search.Problem):
         space = state.index(0)
         row = space // 3
         col = space % 3
+
         # Lubatud liikumine vastavalt reale ja columnile
         actions = []
         if row == 0:
@@ -42,8 +43,8 @@ inistate = (1, 2, 3, 7, 0, 5, 8, 4, 6)
 goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
 
 problem = EightPuzzle(inistate, goal)
-# print(problem.actions(goal))
-# print(problem.result(inistate, 4))
+#print(problem.actions(goal))
+#print(problem.result(inistate, 4))
 
 # Siin tuleb probleem defineerida
 asi = search.breadth_first_tree_search(problem)
