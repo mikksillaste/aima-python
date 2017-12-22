@@ -49,6 +49,9 @@ class VacWorld(search.Problem):
                 newstate["A"] = "Clean"
             elif action == "Right":
                 newstate["loc"] = "B"
+            elif action == "NoOp":
+                newstate["A"] = "Clean"
+                newstate["loc"] = "A"
         elif state["loc"] == "B":
             if action == "Suck":
                 newstate["B"] = "Clean"
@@ -56,6 +59,9 @@ class VacWorld(search.Problem):
                 newstate["loc"] = "C"
             elif action == "Left":
                 newstate["loc"] = "A"
+            elif action == "NoOp":
+                newstate["B"] = "Clean"
+                newstate["loc"] = "B"
         elif state["loc"] == "C":
             if action == "Suck":
                 newstate["C"] = "Clean"
@@ -63,11 +69,17 @@ class VacWorld(search.Problem):
                 newstate["loc"] = "D"
             elif action == "Left":
                 newstate["loc"] = "B"
+            elif action == "NoOp":
+                newstate["C"] = "Clean"
+                newstate["loc"] = "C"
         elif state["loc"] == "D":
             if action == "Suck":
                 newstate["D"] = "Clean"
             elif action == "Left":
                 newstate["loc"] = "C"
+            elif action == "NoOp":
+                newstate["D"] = "Clean"
+                newstate["loc"] = "D"
 
         return newstate
 
