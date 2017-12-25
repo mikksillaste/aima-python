@@ -43,6 +43,7 @@ def step_cost(node, action, next_state):
 def my_search(problem):
     puu_juur = search.Node(problem.initial)
     fringe = deque([puu_juur])
+    states_seen = []
     # how to use deque ("double ended queue"):
     # fringe.append(x)  add x to the end
     # fringe.appendleft(x)  add x to the beginning
@@ -54,11 +55,15 @@ def my_search(problem):
     for iter in range(10000):
         if len(fringe) == 0:
             return None
-        node = fringe[0]
+        node = fringe.popleft()
+
+        states_seen.append(node)
+
         if problem.goal_test(node.state):
             return node
         for child_node in expand(node, problem):
-            fringe.append(child_node)
+            if not child_node in states_seen:
+                fringe.append(child_node)
 
 
 def expand(node, problem):
@@ -69,10 +74,9 @@ def expand(node, problem):
         s = search.Node(result)
         s.parent = node
         s.action = action
-        s.result = result
-        s.path_cost = node.path_cost + step_cost(node, action, result)
+        s.path_cost = node.path_cost + step_cost(node, action, s)
         s.depth = node.depth + 1
-        children.extend(node.state)
+        children.append(s)
     return children
 
 
@@ -82,10 +86,11 @@ def expand(node, problem):
 lihtne = (1, 2, 3, 7, 0, 5, 8, 4, 6)
 keskmine = (0, 1, 5, 7, 3, 2, 8, 4, 6)
 valmis = (1, 2, 3, 4, 5, 6, 7, 8, 0)
-problem = EightPuzzle(lihtne, valmis)
+problem = EightPuzzle(keskmine, valmis)
 
 node = my_search(problem)
 if node is None:
     print("Not found")
 else:
     print(node.solution())
+    print(node.path())
