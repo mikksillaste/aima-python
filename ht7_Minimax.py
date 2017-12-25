@@ -1,5 +1,3 @@
-from games import minimax_decision
-
 X = 1
 O = -1
 
@@ -59,5 +57,34 @@ algus = [X, O, X,
          None, None, None,
          X]
 MYSIDE = X
+
+
+def minimax_decision(state):
+    k = -100
+    for a in actions(state):
+        p = min_value(result(a, state))
+        if p > k:
+            k = p
+            parim_action = a
+    return parim_action
+
+
+def max_value(state):
+    if terminal_test(state):
+        return utility(state)
+    v = -10
+    for (a, s) in successors(state):
+        v = max(v, min_value(s))
+    return v
+
+
+def min_value(state):
+    if terminal_test(state):
+        return utility(state)
+    v = 10
+    for (a, s) in successors(state):
+        v = min(v, max_value(s))
+    return v
+
 
 print(minimax_decision(algus))
