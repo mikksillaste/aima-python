@@ -10,6 +10,7 @@ def checkGrid(grid):
         if len(column) == 1 and grid[0][x] != 0:
             return grid[0][x]
     # diagonaalode kontroll
+    
 
 # game state on antud list of listina. mõned tests seisundid. 0-on tyhi, 1-player1, 2-player2
 winner_is_2 = [[2, 2, 0],
