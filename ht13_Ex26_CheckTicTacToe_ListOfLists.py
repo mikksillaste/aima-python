@@ -10,6 +10,12 @@ def checkGrid(grid):
         if len(column) == 1 and grid[0][x] != 0:
             return grid[0][x]
     # diagonaalode kontroll
+    diag1 = {grid[0][0], grid[1][1], grid[2][2]}
+    diag2 = {grid[0][2], grid[1][1], grid[2][0]}
+    if len(diag1) == 1 or len(diag2) == 1 and grid[1][1] != 0:
+        return grid[1][1]
+
+    return 0
 
 
 # game state on antud list of listina. mõned tests seisundid. 0-on tyhi, 1-player1, 2-player2
@@ -32,3 +38,5 @@ no_winner = [[1, 2, 0],
 also_no_winner = [[1, 2, 0],
                   [2, 1, 0],
                   [2, 1, 0]]
+
+print(checkGrid(winner_is_2))
