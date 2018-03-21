@@ -104,7 +104,7 @@ algolek = {
 # algolek = (1,0,0,1,2)
 
 p = VacWorld(algolek)
-# print(p.actions(olek))
+print(p.actions(algolek))
 asi = search.breadth_first_tree_search(p)
 # asi = search.iterative_deepening_search(p)
 print(asi.solution())
