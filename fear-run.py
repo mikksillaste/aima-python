@@ -44,19 +44,23 @@ class MaxSubarrayProblem(search.Problem):
 
 def hill_climbing(problem):
     current = problem.initial
+    count = 0
     while True:
         # find highest-valued successor
         neighbors = problem.neighbors(current)
         best_neighbor = neighbors[0]
         for next_neighbor in neighbors[1:]:
+            count += 1
             if problem.value(next_neighbor) > problem.value(best_neighbor):
                 best_neighbor = next_neighbor
-
+                print(best_neighbor)
         if problem.value(best_neighbor) <= problem.value(current):
             array, start, end = current
-            return array[start:end] # solution state as normal array
+            return array[start] # solution state as normal array
 
         current = best_neighbor
+        print(best_neighbor)
+        print(count)
 
 #def hill_climbing2(problem):
     # siia oma täiendatud versioon vastavalt ülesande tekstile
